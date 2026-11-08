@@ -1,13 +1,134 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portafoliofundamentosmatematicos</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Fundamentos Matemáticos para la Toma de Decisiones</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ===== SIDEBAR FIJO ===== -->
+    <aside class="sidebar">
+      <button class="brand" data-go="dashboard" aria-label="Ir al inicio">
+        <span class="brand-logo">∑</span>
+        <span class="brand-text"><strong>Fundamentos</strong><small>Toma de Decisiones</small></span>
+      </button>
+      <nav class="nav" aria-label="Navegación principal">
+        <button class="nav-item" id="nav-inicio" data-go="dashboard"><span class="nav-icon">⌂</span>Inicio</button>
+        <p class="nav-label">Temas</p>
+        <div id="nav-temas"><!-- JS: un botón por tema --></div>
+      </nav>
+      <p class="sidebar-footer">Portafolio de ejercicios</p>
+    </aside>
+
+    <!-- ===== ÁREA PRINCIPAL FLUIDA ===== -->
+    <main class="main">
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Ruta"></nav>
+
+      <!-- Vista 1: Dashboard + menú de temas -->
+      <section class="view" id="view-dashboard">
+        <header class="hero card">
+          <h1>Bienvenido a tu portafolio de decisiones</h1>
+          <p class="muted">Elige un tema, abre un ejercicio, captura tus datos y obtén el resultado al instante.</p>
+          <div class="stats">
+            <div class="stat"><span class="stat-num" id="stat-temas">0</span><span class="muted">temas</span></div>
+            <div class="stat"><span class="stat-num" id="stat-ejercicios">0</span><span class="muted">ejercicios</span></div>
+          </div>
+        </header>
+        <h2 class="section-title">Temas</h2>
+        <div class="grid-temas" id="grid-temas"><!-- JS: tarjetas de temas --></div>
+      </section>
+
+      <!-- Vista 2: Ejercicios del tema -->
+      <section class="view" id="view-tema" hidden>
+        <header class="page-head">
+          <span class="chip" id="tema-chip"></span>
+          <h1 id="tema-titulo"></h1>
+          <p class="muted" id="tema-desc"></p>
+        </header>
+        <div class="grid-ejercicios" id="lista-ejercicios"><!-- JS: ejercicios del tema --></div>
+      </section>
+
+      <!-- Vista 3: Área de trabajo -->
+      <section class="view" id="view-ejercicio" hidden>
+        <header class="page-head">
+          <span class="chip" id="ej-chip"></span>
+          <h1 id="ej-titulo"></h1>
+        </header>
+        <div class="work-grid">
+          <article class="card span-2">
+            <h2>Instrucciones</h2>
+            <!-- INSTRUCCIONES: se llenan desde LOGICA["tX-eY"].instrucciones en main.js -->
+            <p class="muted" id="ej-instrucciones"></p>
+          </article>
+
+          <article class="card">
+            <h2>Datos de entrada</h2>
+            <form id="ej-form" novalidate>
+              <!-- INPUTS: se generan desde LOGICA["tX-eY"].inputs en main.js -->
+              <div class="inputs" id="ej-inputs"></div>
+              <button type="submit" class="btn-calc">Calcular</button>
+            </form>
+          </article>
+
+          <article class="card result">
+            <h2>Resultados</h2>
+            <!-- RESULTADOS: aquí se pintan los valores que devuelva calcular() -->
+            <div class="result-body" id="ej-resultado">
+              <p class="muted">Captura tus datos y presiona Calcular para ver el resultado aquí.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- =====================================================
+     TEMA 1: Coeficiente de Correlación de Pearson
+     Pega este bloque dentro de tu index.html (dentro de <main>).
+     ===================================================== -->
+<section class="view" id="view-pearson" hidden>
+  <header class="page-head">
+    <span class="chip">Tema 1</span>
+    <h1>Coeficiente de Correlación de Pearson</h1>
+  </header>
+
+  <!-- Botones de carga rápida (sin botón Calcular) -->
+  <div class="btn-group">
+    <button type="button" class="btn-primary" data-pearson="1">Ver Ejercicio 1 (Horas de Estudio)</button>
+    <button type="button" class="btn-primary" data-pearson="2">Ver Ejercicio 2 (Programadores)</button>
+  </div>
+
+  <!-- Estado inicial: se reemplaza al elegir un ejercicio -->
+  <p class="muted" id="pearson-vacio">Elige un ejercicio para ver el problema resuelto.</p>
+
+  <div id="pearson-contenido" hidden>
+    <h2 class="pearson-titulo" id="pearson-titulo"></h2>
+
+    <!-- Datos originales -->
+    <article class="card">
+      <h3>Datos originales</h3>
+      <p class="data-line"><span class="muted">X =</span> <span id="pearson-datos-x"></span></p>
+      <p class="data-line"><span class="muted">Y =</span> <span id="pearson-datos-y"></span></p>
+    </article>
+
+    <!-- Tabla generada dinámicamente por pearson.js -->
+    <div class="table-container" id="pearson-tabla"></div>
+
+    <!-- Resultados -->
+    <article class="card result">
+      <h3>Resultados</h3>
+      <div class="result-grid" id="pearson-resultados"></div>
+    </article>
+
+    <!-- Interpretación automática -->
+    <article class="card interpretacion" id="pearson-interpretacion-card">
+      <h3>Interpretación</h3>
+      <p id="pearson-interpretacion"></p>
+    </article>
+  </div>
+</section>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>

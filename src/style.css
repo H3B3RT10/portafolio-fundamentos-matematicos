@@ -369,3 +369,20 @@ sub { font-size: .72em; line-height: 0; }
 .campo-nota { font-size: 13px; color: var(--muted); }
 .campo .input-num { text-align: left; }
 .bloque-subtitulo { margin: 20px 0 10px; font-size: 14px; color: var(--muted); }
+/* =========================================================
+   TEMA 3: GEOMÉTRICAS — agrega esto al final de src/style.css
+   Solo clases nuevas; el resto (tarjetas, pestañas, bloques, inputs,
+   botones y .aviso con --warn) se reutiliza tal cual.
+   ========================================================= */
+sup { font-size: .72em; line-height: 0; }
+
+/* Equivalencia en fracción exacta bajo cada input */
+.campo-frac { font-size: 13px; font-variant-numeric: tabular-nums; color: var(--accent-2, #06B6D4); }
+.campo-frac:empty { display: none; }
+
+/* Nota aclaratoria dentro del resultado (Problema base) */
+.nota-aclaratoria {
+  margin-top: 6px; padding: 12px 16px; border-radius: 14px; font-size: 15px; line-height: 1.55; color: var(--text, #fff);
+  border-left: 3px solid var(--accent-2, #06B6D4);
+  background: color-mix(in srgb, var(--accent-2, #06B6D4) 10%, transparent);
+}

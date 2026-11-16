@@ -212,3 +212,83 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 
 .interpretacion { border-color: var(--accent); }
 .interpretacion p { color: var(--text); font-size: 17px; }
+
+/* =========================================================
+   TEMA 2: PROGRESIONES — agrégalo al final de src/style.css
+   (reutiliza .card, .btn-group, .btn-primary, .chip, .muted)
+   ========================================================= */
+sub { font-size: .72em; line-height: 0; }
+
+/* Pestañas de incisos */
+.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: -10px 0 26px; }
+.btn-tab {
+  padding: 9px 18px; border-radius: 999px; font-size: 14px; color: var(--muted);
+  background: color-mix(in srgb, var(--accent-2) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 30%, transparent);
+  transition: color .2s, border-color .2s, box-shadow .25s, background .25s;
+}
+.btn-tab:hover, .btn-tab.active {
+  color: var(--text); border-color: var(--accent-2);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent-2) 35%, transparent);
+}
+.btn-tab.active { background: color-mix(in srgb, var(--accent-2) 22%, transparent); }
+
+/* Tarjeta de 4 bloques */
+.prob-card { display: flex; flex-direction: column; gap: 30px; }
+.prob-titulo { font-size: 22px; margin: 0; }
+.bloque-titulo { display: flex; align-items: center; gap: 12px; font-size: 16px; margin-bottom: 14px; }
+.bloque-num {
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  font-size: 14px; color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 40%, transparent);
+}
+
+/* Bloque 1 */
+.enunciado { font-size: 17px; line-height: 1.6; }
+.inciso {
+  margin-top: 12px; padding: 12px 16px; border-radius: 14px; border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+}
+
+/* Bloque 2 */
+.data-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.data-list li {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: 12px 16px; border-radius: 14px;
+  background: color-mix(in srgb, var(--bg) 55%, transparent); border: 1px solid transparent;
+}
+.data-var { font-weight: 700; font-size: 17px; color: var(--accent-2); }
+.data-val { font-variant-numeric: tabular-nums; }
+.data-nota { width: 100%; font-size: 13px; color: var(--muted); }
+.data-list li.incognita { border: 1px dashed var(--accent); }
+.data-list li.incognita .data-var, .data-list li.incognita .data-val { color: var(--accent); }
+
+/* Bloque 3 */
+.pasos { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; counter-reset: paso; }
+.paso {
+  counter-increment: paso; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 40%, transparent); transition: border-color .25s, box-shadow .25s;
+}
+.paso:hover { border-color: var(--accent); box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 22%, transparent); }
+.paso-titulo { display: flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 8px; }
+.paso-titulo::before {
+  content: counter(paso); display: grid; place-items: center; min-width: 24px; height: 24px; border-radius: 8px;
+  font-size: 13px; color: var(--text); background: var(--accent);
+}
+.paso-expl { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.formula {
+  padding: 6px 12px; border-left: 2px solid var(--accent-2); font-size: 17px; overflow-x: auto;
+  font-family: "Cambria Math", "STIX Two Math", Georgia, serif; font-variant-numeric: tabular-nums;
+}
+.formula + .formula { margin-top: 6px; }
+
+/* Bloque 4 */
+.answer {
+  padding: 22px 24px; border-radius: 20px; border: 1px solid var(--accent); box-shadow: var(--glow);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.answer-valor {
+  font-size: clamp(24px, 3.5vw, 34px); font-weight: 700; color: var(--text);
+  font-family: "Cambria Math", "STIX Two Math", Georgia, serif;
+}

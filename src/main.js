@@ -1,10 +1,11 @@
 import { iniciarPearson } from './pearson.js';
+import { iniciarProgresiones } from './progresiones.js';
 /* =========================================================
    DATOS: temas y ejercicios (cámbialos por los reales)
    ========================================================= */
 const TEMAS = [
-  { id: 1, icono: '∑', titulo: 'Tema 1', descripcion: 'Descripción breve del tema 1.' },
-  { id: 2, icono: '∫', titulo: 'Tema 2', descripcion: 'Descripción breve del tema 2.' },
+  { id: 1, icono: '∑', titulo: 'Correlación de Pearson', descripcion: 'Coeficiente de correlación lineal e interpretación.' },
+  { id: 2, icono: '∫', titulo: 'Progresiones aritméticas', descripcion: 'Cálculo de términos, diferencias y sucesiones.' },
   { id: 3, icono: 'π', titulo: 'Tema 3', descripcion: 'Descripción breve del tema 3.' },
   { id: 4, icono: 'Δ', titulo: 'Tema 4', descripcion: 'Descripción breve del tema 4.' },
   { id: 5, icono: '≈', titulo: 'Tema 5', descripcion: 'Descripción breve del tema 5.' },
@@ -53,11 +54,12 @@ const configPorDefecto = {
    NAVEGACIÓN ENTRE VISTAS
    ========================================================= */
 const $ = s => document.querySelector(s);
-const vistas = { dashboard: $('#view-dashboard'), tema: $('#view-tema'), ejercicio: $('#view-ejercicio'), pearson: $('#view-pearson') };
+const vistas = { dashboard: $('#view-dashboard'), tema: $('#view-tema'), ejercicio: $('#view-ejercicio'), pearson: $('#view-pearson'), progresiones: $('#view-progresiones') };
 let estado = { vista: 'dashboard', tema: null, ejercicio: null };
 
 function irA(vista, tema = null, ejercicio = null) {
   if (vista === 'tema' && tema === 1) vista = 'pearson';
+  if (vista === 'tema' && tema === 2) vista = 'progresiones';
   estado = { vista, tema, ejercicio };
   render();
   window.scrollTo({ top: 0 });
@@ -164,4 +166,5 @@ document.addEventListener('click', e => {
 
 renderDashboard();
 iniciarPearson();
+iniciarProgresiones();
 render();

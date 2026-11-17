@@ -1,15 +1,18 @@
 import { iniciarPearson } from './pearson.js';
 import { iniciarProgresiones } from './progresiones.js';
 import { iniciarGeometricas } from './geometricas.js';
+import { iniciarInteresCompuesto } from './interesCompuesto.js';
+import { iniciarInteresSimple } from './interesSimple.js';
+
 /* =========================================================
    DATOS: temas y ejercicios (cámbialos por los reales)
    ========================================================= */
 const TEMAS = [
-  { id: 1, icono: '∑', titulo: 'Correlación de Pearson', descripcion: 'Coeficiente de correlación lineal e interpretación.' },
-  { id: 2, icono: '∫', titulo: 'Progresiones aritméticas', descripcion: 'Cálculo de términos, diferencias y sucesiones.' },
-  { id: 3, icono: 'π', titulo: 'Progresiones geométricas', descripcion: 'Razón común, término general, interpolación y series.' },
-  { id: 4, icono: 'Δ', titulo: 'Tema 4', descripcion: 'Descripción breve del tema 4.' },
-  { id: 5, icono: '≈', titulo: 'Tema 5', descripcion: 'Descripción breve del tema 5.' },
+  { id: 1, icono: '∑', titulo: 'Correlación de Pearson', descripcion: 'Coeficiente de correlación lineal e interpretación.', totalEjercicios: 2 },
+  { id: 2, icono: '∫', titulo: 'Progresiones aritméticas', descripcion: 'Cálculo de términos, diferencias y sucesiones.', totalEjercicios: 5 },
+  { id: 3, icono: 'π', titulo: 'Progresiones geométricas', descripcion: 'Razón común, término general, interpolación y series.', totalEjercicios: 6 },
+  { id: 4, icono: 'Δ', titulo: 'Interés Compuesto', descripcion: 'Monto Acumulado, capitalización, periódica, y valor presente.', totalEjercicios: 2 },
+  { id: 5, icono: '≈', titulo: 'Interés Simple', descripcion: 'Interés, monto, capital, plazo y tasa con interés simple.', totalEjercicios: 6 }
 ].map(t => ({
   ...t,
   // Ejercicios de ejemplo: 4 por tema. Ajusta la cantidad o los nombres aquí.
@@ -55,13 +58,15 @@ const configPorDefecto = {
    NAVEGACIÓN ENTRE VISTAS
    ========================================================= */
 const $ = s => document.querySelector(s);
-const vistas = { dashboard: $('#view-dashboard'), tema: $('#view-tema'), ejercicio: $('#view-ejercicio'), pearson: $('#view-pearson'), progresiones: $('#view-progresiones'), geometricas: $('#view-geometricas') };
+const vistas = { dashboard: $('#view-dashboard'), tema: $('#view-tema'), ejercicio: $('#view-ejercicio'), pearson: $('#view-pearson'), progresiones: $('#view-progresiones'), geometricas: $('#view-geometricas'), interesCompuesto: $('#view-interes-compuesto'), 'interes-simple': $('#view-interes-simple') };
 let estado = { vista: 'dashboard', tema: null, ejercicio: null };
 
 function irA(vista, tema = null, ejercicio = null) {
   if (vista === 'tema' && tema === 1) vista = 'pearson';
   if (vista === 'tema' && tema === 2) vista = 'progresiones';
   if (vista === 'tema' && tema === 3) vista = 'geometricas';
+  if (vista === 'tema' && tema === 4) vista = 'interesCompuesto';
+  if (vista === 'tema' && tema === 5) vista = 'interes-simple';
   estado = { vista, tema, ejercicio };
   render();
   window.scrollTo({ top: 0 });
@@ -170,4 +175,6 @@ renderDashboard();
 iniciarPearson();
 iniciarProgresiones();
 iniciarGeometricas();
+iniciarInteresCompuesto();
+iniciarInteresSimple();
 render();

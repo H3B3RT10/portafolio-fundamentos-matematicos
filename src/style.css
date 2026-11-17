@@ -386,3 +386,37 @@ sup { font-size: .72em; line-height: 0; }
   border-left: 3px solid var(--accent-2, #06B6D4);
   background: color-mix(in srgb, var(--accent-2, #06B6D4) 10%, transparent);
 }
+/* =========================================================
+   TEMA 5: INTERÉS SIMPLE — agrega esto al final de src/style.css
+   Solo 4 clases nuevas (tabla resumen); el resto se reutiliza.
+   ========================================================= */
+.fila-reg { cursor: pointer; }
+.fila-reg.activa .data-cell { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.celda-res { color: var(--accent-2, #06B6D4); font-weight: 600; }          /* dato que se calcula */
+.celda-aviso { color: var(--warn, #F59E0B); }                              /* registro con datos inválidos */
+
+/* =========================================================
+   TEMA 5: ajustes de la tarjeta "Tabla resumen de los 6 registros"
+   Pégalo al final de src/style.css (después de las 4 clases de interesSimple.css).
+   Todo está acotado a #view-interes-simple / #is-resumen: no afecta a la tabla de Pearson.
+   ========================================================= */
+
+/* 1) Aire entre la tarjeta resumen y la fila de botones Registro 1 … 6 */
+#view-interes-simple > .card { margin-bottom: 28px; }
+
+/* 2) Aire entre la tabla y el botón "Restaurar los 6 registros" */
+#view-interes-simple .card > .acciones { margin-top: 16px; }
+
+/* 3) Tabla con columnas fijas: encabezados y celdas quedan en la misma vertical */
+#is-resumen .data-table { width: 100%; min-width: 920px; border-collapse: collapse; table-layout: fixed; }
+#is-resumen .data-table th,
+#is-resumen .data-table td { padding: 12px 10px; text-align: center; vertical-align: middle; }
+#is-resumen .data-table th:nth-child(1) { width: 14%; }   /* Registro */
+#is-resumen .data-table th:nth-child(2) { width: 17%; }   /* Capital (C) */
+#is-resumen .data-table th:nth-child(3) { width: 16%; }   /* Monto (M) */
+#is-resumen .data-table th:nth-child(4) { width: 21%; }   /* Plazo (n) */
+#is-resumen .data-table th:nth-child(5) { width: 17%; }   /* Tasa (i) */
+#is-resumen .data-table th:nth-child(6) { width: 15%; }   /* Interés (I) */
+
+/* Opcional: separa el texto de la tarjeta de la tabla (si lo ves pegado) */
+#view-interes-simple .card > .muted { margin-bottom: 16px; }

@@ -190,3 +190,58 @@ iniciarInteresCompuesto();
 iniciarInteresSimple();
 iniciarTasasEquivalentes();
 render();
+
+/* ==========================================================
+   PANTALLA DE BIENVENIDA: entrada y regreso al portafolio
+   ========================================================== */
+const DURACION_TRANSICION = 650;
+
+const pantallaBienvenida = document.getElementById('welcome-screen');
+const btnEntrarPortafolio = document.getElementById('btn-entrar-portafolio');
+const contenedorApp = document.querySelector('.app');
+const btnMarca = document.querySelector('.brand');
+const prefiereMenosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+let transicionEnCurso = false;
+
+function esperarTransicion(callback) {
+  const espera = prefiereMenosMovimiento.matches ? 0 : DURACION_TRANSICION;
+  window.setTimeout(callback, espera);
+}
+
+function entrarAlPortafolio() {
+  if (transicionEnCurso || !pantallaBienvenida || !contenedorApp) return;
+  transicionEnCurso = true;
+
+  contenedorApp.hidden = false;
+  contenedorApp.classList.add('entrando');
+  pantallaBienvenida.classList.add('saliendo');
+
+  esperarTransicion(() => {
+    pantallaBienvenida.hidden = true;
+    pantallaBienvenida.classList.remove('saliendo');
+    contenedorApp.classList.remove('entrando');
+    transicionEnCurso = false;
+    contenedorApp.focus?.({ preventScroll: true });
+  });
+}
+
+function volverABienvenida() {
+  if (transicionEnCurso || !pantallaBienvenida || !contenedorApp) return;
+  transicionEnCurso = true;
+
+  pantallaBienvenida.hidden = false;
+  pantallaBienvenida.classList.add('saliendo');
+  // Fuerza un reflow para que la transición parta del estado "saliendo".
+  void pantallaBienvenida.offsetWidth;
+  pantallaBienvenida.classList.remove('saliendo');
+
+  esperarTransicion(() => {
+    contenedorApp.hidden = true;
+    transicionEnCurso = false;
+    btnEntrarPortafolio?.focus({ preventScroll: true });
+  });
+}
+
+btnEntrarPortafolio?.addEventListener('click', entrarAlPortafolio);
+btnMarca?.addEventListener('click', volverABienvenida);

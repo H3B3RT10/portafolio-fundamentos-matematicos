@@ -10,20 +10,108 @@
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
-  <div class="app">
+<section id="welcome-screen" class="welcome-screen" aria-labelledby="welcome-title">
+    <div class="welcome-bg" aria-hidden="true">
+      <span class="welcome-halo welcome-halo--violet"></span>
+      <span class="welcome-halo welcome-halo--cyan"></span>
+      <span class="welcome-halo welcome-halo--green"></span>
+      <span class="welcome-symbol ws-1">∑</span>
+      <span class="welcome-symbol ws-2">∫</span>
+      <span class="welcome-symbol ws-3">π</span>
+      <span class="welcome-symbol ws-4">Δ</span>
+      <span class="welcome-symbol ws-5">≃</span>
+      <span class="welcome-symbol ws-6">%</span>
+      <span class="welcome-symbol ws-7">∑</span>
+      <span class="welcome-symbol ws-8">π</span>
+    </div>
 
-    <!-- ===== SIDEBAR FIJO ===== -->
+    <div class="welcome-content">
+      <header class="welcome-brand">
+        <div class="welcome-emblem" aria-hidden="true">∑</div>
+        <span class="chip welcome-chip">PORTAFOLIO INTERACTIVO · 6 TEMAS RESUELTOS</span>
+      </header>
+
+      <h1 id="welcome-title" class="welcome-title">Bienvenido a tu portafolio de ejercicios</h1>
+      <p class="welcome-subtitle">
+        Plataforma de resolución paso a paso y cálculo dinámico en tiempo real para el análisis financiero y matemático.
+      </p>
+
+      <div class="welcome-grid">
+        <article class="welcome-card welcome-card--violet">
+          <span class="welcome-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </span>
+          <div>
+            <span class="welcome-card-label">Estudiante</span>
+            <strong class="welcome-card-value">Durán Domínguez Heberto</strong>
+          </div>
+        </article>
+
+        <article class="welcome-card welcome-card--cyan">
+          <span class="welcome-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M9 8h6"/></svg>
+          </span>
+          <div>
+            <span class="welcome-card-label">Materia</span>
+            <strong class="welcome-card-value">Fundamentos Matemáticos para la Toma de Decisiones</strong>
+          </div>
+        </article>
+
+        <article class="welcome-card welcome-card--green">
+          <span class="welcome-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg>
+          </span>
+          <div>
+            <span class="welcome-card-label">Sección y NRC</span>
+            <strong class="welcome-card-value">Sección 503 · NRC 12429</strong>
+          </div>
+        </article>
+
+        <article class="welcome-card welcome-card--violet">
+          <span class="welcome-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg>
+          </span>
+          <div>
+            <span class="welcome-card-label">Carrera</span>
+            <strong class="welcome-card-value">Licenciatura en Sistemas Computacionales Administrativos</strong>
+          </div>
+        </article>
+      </div>
+
+      <ul class="welcome-topics" aria-label="Temas incluidos en el portafolio">
+        <li><span>01</span> Correlación de Pearson</li>
+        <li><span>02</span> Progresiones Aritméticas</li>
+        <li><span>03</span> Progresiones Geométricas</li>
+        <li><span>04</span> Interés Compuesto</li>
+        <li><span>05</span> Interés Simple</li>
+        <li><span>06</span> Tasas Equivalentes</li>
+      </ul>
+
+      <button type="button" id="btn-entrar-portafolio" class="welcome-cta">
+        <span>Entrar al Portafolio →</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== APLICACIÓN PRINCIPAL (UNA SOLA VEZ) ===== -->
+  <div class="app" hidden>
+
+    <!-- ===== SIDEBAR FIJO (UNA SOLA VEZ) ===== -->
     <aside class="sidebar">
-      <button class="brand" data-go="dashboard" aria-label="Ir al inicio">
+      <button type="button" class="brand" aria-label="Volver a la portada">
         <span class="brand-logo">∑</span>
         <span class="brand-text"><strong>Fundamentos</strong><small>Toma de Decisiones</small></span>
       </button>
-      <nav class="nav" aria-label="Navegación principal">
-        <button class="nav-item" id="nav-inicio" data-go="dashboard"><span class="nav-icon">⌂</span>Inicio</button>
-        <p class="nav-label">Temas</p>
-        <div id="nav-temas"><!-- JS: un botón por tema --></div>
+
+      <nav class="nav">
+        <button class="nav-item active" id="nav-inicio" data-go="dashboard">
+          <span class="nav-icon">⌂</span><span>Inicio</span>
+        </button>
+        <p class="nav-label">TEMAS</p>
+        <div id="nav-temas"></div>
       </nav>
-      <p class="sidebar-footer">Portafolio de ejercicios</p>
+
+      <footer class="sidebar-footer">Portafolio · JS Vanilla</footer>
     </aside>
 
     <!-- ===== ÁREA PRINCIPAL FLUIDA ===== -->
@@ -179,9 +267,6 @@
      ===================================================== -->
 <section class="view" id="view-interes-compuesto" hidden></section>
 <section class="view" id="view-interes-simple" hidden></section>
-<!-- =====================================================
-     TEMA 6: Tasas equivalentes
-     ===================================================== -->
 <section class="view" id="view-tasas-equivalentes" hidden></section>
     </main>
   </div>

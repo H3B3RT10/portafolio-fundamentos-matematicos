@@ -85,22 +85,22 @@ export const terminoGeneral = (a1, r, n) => a1 * Math.pow(r, n - 1);
    ========================================================= */
 export const SECCIONES = [
   {
-    id: 'base', corto: 'Problema Base', titulo: 'Problema base', tema: 'Fondo de ahorro con renta creciente',
+    id: 'base', corto: 'Ejercicio 1', titulo: 'Ejercicio 1', tema: '',
     enunciado: 'El señor Hernández realiza aportaciones semanales a un fondo de ahorro durante 12 meses, sin intereses. Inicia con depósitos semanales de $260 e incrementa el monto del depósito semanal en $20 cada 4 semanas. Determine el monto del último depósito semanal y el capital total acumulado.',
     problemas: [{ tipo: 'ahorro', depositoInicial: 260, incremento: 20, periodos: 12, pagosPorPeriodo: 4 }],
   },
   {
-    id: 1, corto: 'Ejercicio 1', titulo: 'Ejercicio 1', tema: 'Término 30 a partir del 1.° y 4.° término',
+    id: 1, corto: 'Ejercicio 2', titulo: 'Ejercicio 2', tema: '',
     enunciado: 'Calcule el trigésimo término (n = 30) de una sucesión geométrica si el primer término es 3/4 y el cuarto término es 6.',
     problemas: [{ tipo: 'dato-posicion', a1: 0.75, posicionDato: 4, valorDato: 6, nObjetivo: 30, ordinal: 'trigésimo' }],
   },
   {
-    id: 2, corto: 'Ejercicio 2', titulo: 'Ejercicio 2', tema: 'Interpolación de términos intermedios',
+    id: 2, corto: 'Ejercicio 3', titulo: 'Ejercicio 3', tema: '',
     enunciado: 'El primer término de una sucesión geométrica es 64 y el sexto término es 2. Determine los términos intermedios (a₂, a₃, a₄ y a₅).',
     problemas: [{ tipo: 'interpolacion', a1: 64, posicionFinal: 6, valorFinal: 2 }],
   },
   {
-    id: 3, corto: 'Ejercicio 3 (a–f)', titulo: 'Ejercicio 3', tema: 'Valor de x en cada progresión geométrica',
+    id: 3, corto: 'Ejercicio 4 (a–f)', titulo: 'Ejercicio 4', tema: '',
     enunciado: 'Halle el valor de x en cada progresión geométrica.',
     metodo: 'Método de clase: se iguala la razón común r = a₂ / a₁ = a₃ / a₂, de donde (a₂)² = a₁ · a₃.',
     problemas: [
@@ -113,7 +113,7 @@ export const SECCIONES = [
     ],
   },
   {
-    id: 4, corto: 'Ejercicio 4 (a–d)', titulo: 'Ejercicio 4', tema: 'Término indicado en cada progresión geométrica',
+    id: 4, corto: 'Ejercicio 5 (a–d)', titulo: 'Ejercicio 5', tema: '',
     enunciado: 'Obtenga el término indicado en cada progresión geométrica.',
     problemas: [
       { etiqueta: 'a', tipo: 'termino-dos-primeros', inciso: 'Sucesión: 2, 3, … → hallar el décimo término (n = 10).',       a1: 2,    a2: 3,            n: 10, ordinal: 'décimo' },
@@ -123,7 +123,7 @@ export const SECCIONES = [
     ],
   },
   {
-    id: 5, corto: 'Ejercicio 5', titulo: 'Ejercicio 5', tema: 'Término 24 de una progresión exponencial',
+    id: 5, corto: 'Ejercicio 6', titulo: 'Ejercicio 6', tema: '',
     enunciado: 'Calcule el vigésimo cuarto término (n = 24) de la progresión geométrica 2, 2<sup>3</sup>, …',
     problemas: [{ tipo: 'termino-dos-primeros', a1: 2, a2: 8, n: 24, ordinal: 'vigésimo cuarto' }],
   },
@@ -635,14 +635,14 @@ export function iniciarGeometricas() {
       </header>
       <div class="btn-group" id="geo-ejercicios"></div>
       <div class="tabs" id="geo-incisos" hidden></div>
-      <p class="muted" id="geo-vacio">Elige un ejercicio para ver el problema resuelto.</p>
+      <p class="muted" id="geo-vacio"></p>
       <div id="geo-contenido" hidden>
         <article class="card prob-card">
           <h2 class="prob-titulo" id="geo-titulo"></h2>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción del problema</h3><div id="geo-b1"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Desglose de datos identificados</h3><div id="geo-b2"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento paso a paso</h3><div id="geo-b3"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado final</h3><div id="geo-b4"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción</h3><div id="geo-b1"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Datos</h3><div id="geo-b2"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento</h3><div id="geo-b3"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado</h3><div id="geo-b4"></div></section>
         </article>
       </div>`;
 

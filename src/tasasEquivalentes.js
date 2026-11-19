@@ -380,10 +380,10 @@ export function iniciarTasasEquivalentes() {
       <div class="btn-group" id="te-ejercicios"></div>
       <article class="card prob-card">
         <h2 class="prob-titulo" id="te-titulo"></h2>
-        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción del problema</h3><div id="te-b1"></div></section>
-        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Desglose de datos identificados</h3><div id="te-b2"></div></section>
-        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento paso a paso</h3><div id="te-b3"></div></section>
-        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado final</h3><div id="te-b4"></div></section>
+        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción</h3><div id="te-b1"></div></section>
+        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Datos</h3><div id="te-b2"></div></section>
+        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento</h3><div id="te-b3"></div></section>
+        <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado</h3><div id="te-b4"></div></section>
       </article>`;
 
     vista.addEventListener('click', e => {

@@ -194,7 +194,7 @@ render();
 /* ==========================================================
    PANTALLA DE BIENVENIDA: entrada y regreso al portafolio
    ========================================================== */
-const DURACION_TRANSICION = 650;
+const DURACION_TRANSICION = 150;
 
 const pantallaBienvenida = document.getElementById('welcome-screen');
 const btnEntrarPortafolio = document.getElementById('btn-entrar-portafolio');

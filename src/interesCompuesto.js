@@ -487,14 +487,14 @@ export function iniciarInteresCompuesto() {
       </header>
       <div class="btn-group" id="ic-ejercicios"></div>
       <div class="tabs" id="ic-incisos" hidden></div>
-      <p class="muted" id="ic-vacio">Elige un ejercicio para ver el problema resuelto.</p>
+      <p class="muted" id="ic-vacio"></p>
       <div id="ic-contenido" hidden>
         <article class="card prob-card">
           <h2 class="prob-titulo" id="ic-titulo"></h2>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción del problema</h3><div id="ic-b1"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Desglose de datos identificados</h3><div id="ic-b2"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento paso a paso</h3><div id="ic-b3"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado final</h3><div id="ic-b4"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción</h3><div id="ic-b1"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Datos</h3><div id="ic-b2"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento</h3><div id="ic-b3"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado</h3><div id="ic-b4"></div></section>
         </article>
       </div>`;
 

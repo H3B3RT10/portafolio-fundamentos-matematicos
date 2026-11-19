@@ -441,14 +441,14 @@ export function iniciarInteresSimple() {
         </div>
       </article>
       <div class="btn-group" id="is-registros"></div>
-      <p class="muted" id="is-vacio">Elige un registro para ver el problema resuelto.</p>
+      <p class="muted" id="is-vacio"></p>
       <div id="is-contenido" hidden>
         <article class="card prob-card">
           <h2 class="prob-titulo" id="is-titulo"></h2>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción del problema</h3><div id="is-b1"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Desglose de datos identificados</h3><div id="is-b2"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento paso a paso</h3><div id="is-b3"></div></section>
-          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado final</h3><div id="is-b4"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">1</span>Instrucción</h3><div id="is-b1"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">2</span>Datos</h3><div id="is-b2"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">3</span>Procedimiento</h3><div id="is-b3"></div></section>
+          <section class="bloque"><h3 class="bloque-titulo"><span class="bloque-num">4</span>Resultado</h3><div id="is-b4"></div></section>
         </article>
       </div>`;
 
